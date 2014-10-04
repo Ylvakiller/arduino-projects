@@ -1,4 +1,4 @@
-#include <input.inp>
+#include <input.in>
 #include <numbers.ino>
 #include <drawing.ino>
 #include <bombgen.ino>
@@ -35,8 +35,14 @@ void loop(){
     setBombs();
     temp++;
   }
+  countBombs();
   screen();
   initialGrid();
+  
+  /*Serial.println("Starting griddraw");
+  drawGen();
+  Serial.println(freeRam());*/
+  
   while (1){
     draw1(0,0);
     byte x = 0;
@@ -51,6 +57,14 @@ void loop(){
 //Does the cursor moving
 void cp(){
 
+}
+
+
+
+int freeRam () {
+  extern int __heap_start, *__brkval; 
+  int v; 
+  return (int) &v - (__brkval == 0 ? (int) &__heap_start : (int) __brkval); 
 }
 
 //sets the default screen, leaving a large blank area where the bombs will be

@@ -1,4 +1,4 @@
-byte Y, Yold, X, Xold
+byte Y, Yold, X, Xold;
 int i = 0;
 void storeInput(){
   Xold = X;
@@ -54,7 +54,7 @@ void readY(){
   }
 }
 
-byte button(}{
+void button(){
   unsigned long timeStamp;
   boolean temp1 = false;
     boolean temp2 = false;
@@ -62,7 +62,7 @@ byte button(}{
     timeStamp = millis();
     temp1=true;
   }
-  while(millis()-timeStamp<100&&temp&&!temp2){
+  while(millis()-timeStamp<100&&temp1&&!temp2){
     if(analogRead(A2)>100){
       temp2 = true;
       timeStamp = millis();

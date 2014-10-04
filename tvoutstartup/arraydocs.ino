@@ -1,3 +1,5 @@
+/**
+
 This file will tell something about the different values of the arrays used:
 
 input array:
@@ -21,7 +23,7 @@ this array meant to store all the data about the level
 19 means no bomb near, spot exposed
 20-28 say how many bombs are near, with a flag on the cell  // in this case 20 means 0 bombs near, 21 means 1 bomb near etc
 29 is a flagged bomb
-
+*/
 
 
 

@@ -98,3 +98,50 @@ void clearCursor(byte x, byte y){
   TV.set_pixel(((x*7)+8), ((y*7)+2), BLACK);
 }
 
+
+void drawGen(){
+  byte x = 0;
+  byte y = 0;
+  while (x<13){
+    while(y<13){
+      switch (grid[x][y]){
+      case 1:
+      draw1(x,y);
+      break;
+      case 2:
+      draw3(x,y);
+      break;
+      case 3:
+      draw3(x,y);
+      break;
+      case 4:
+      draw4(x,y);
+      break;
+      case 5:
+      draw5(x,y);
+      break;
+      case 6:
+      draw6(x,y);
+      break;
+      case 7:
+      draw7(x,y);
+      break;
+      case 8:
+      draw8(x,y);
+      break;
+      case 9:
+      drawFlag(x,y);
+      break;
+      case 10:
+      drawEmpty(x,y);
+      break;
+      default:
+      drawEmpty(x,y);
+      break;
+      }
+      y++;
+    }
+    x++;
+  }
+}
+
