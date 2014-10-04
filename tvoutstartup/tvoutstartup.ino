@@ -2,6 +2,7 @@
 #include <numbers.ino>
 #include <drawing.ino>
 #include <bombgen.ino>
+#include <animations.ino>
 #include <TVout.h>
 
 TVout TV;
@@ -41,6 +42,8 @@ void loop(){
     byte x = 0;
     //while (x<13){
     //}
+    
+    drawCursor(5,9);
   }
 }
 

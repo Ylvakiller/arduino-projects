@@ -79,5 +79,22 @@ void drawCursor(byte x, byte y){
 
 
 void clearCursor(byte x, byte y){
+  TV.set_pixel(((x*7)+2), ((y*7)+2), BLACK);  //top left
+  TV.set_pixel(((x*7)+2), ((y*7)+3), BLACK);
+  TV.set_pixel(((x*7)+3), ((y*7)+2), BLACK);
+
+
+  TV.set_pixel(((x*7)+9), ((y*7)+9), BLACK);  //bottom right
+  TV.set_pixel(((x*7)+8), ((y*7)+9), BLACK);
+  TV.set_pixel(((x*7)+9), ((y*7)+8), BLACK);
+
+  TV.set_pixel(((x*7)+2), ((y*7)+9), BLACK);  //bottom left
+  TV.set_pixel(((x*7)+3), ((y*7)+9), BLACK);
+  TV.set_pixel(((x*7)+2), ((y*7)+8), BLACK);
+
+
+  TV.set_pixel(((x*7)+9), ((y*7)+2), BLACK);  // top right
+  TV.set_pixel(((x*7)+9), ((y*7)+3), BLACK);
+  TV.set_pixel(((x*7)+8), ((y*7)+2), BLACK);
 }
 
