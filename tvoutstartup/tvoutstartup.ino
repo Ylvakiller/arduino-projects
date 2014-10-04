@@ -23,7 +23,8 @@ byte grid[13][13] = {
 //30 is bomb
 
 void setup(){
-  TV.begin(PAL,128,96);
+  
+
   randomSeed(analogRead(A5));
   Serial.begin(9600);
 }
@@ -35,13 +36,14 @@ void loop(){
     setBombs();
     temp++;
   }
-  countBombs();
+  //countBombs();
+    TV.begin(PAL,128,96);
   screen();
   initialGrid();
   
-  /*Serial.println("Starting griddraw");
-  drawGen();
-  Serial.println(freeRam());*/
+  //Serial.println("Starting griddraw");
+  //drawGen();
+  //Serial.println(freeRam());
   
   while (1){
     draw1(0,0);
