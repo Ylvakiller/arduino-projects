@@ -10,7 +10,7 @@ TVout TV;
 byte oldcursorX;
 byte oldcursorY;
 
-
+byte input[10] = {0};
 byte grid[13][13] = {
   0};
 //In this grid a 0 means not counted or bombb, a 9 means bomb, a 10 means no bombs are near, spot covered 
