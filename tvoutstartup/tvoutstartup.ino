@@ -51,21 +51,6 @@ void cp(){
 }
 
 //sets the default screen, leaving a large blank area where the bombs will be
-void screen(){
-  TV.draw_line(0,0,95,0, WHITE);
-  TV.draw_line(0,0,0,95, WHITE);
-  TV.draw_line(0,95,95,95, WHITE);
-  TV.draw_line(95,0,95,95, WHITE);
-  TV.draw_line(96,0,127,0, WHITE);
-  TV.draw_line(96,0,96,95, WHITE);
-  TV.draw_line(96,95,127,95, WHITE);
-  TV.draw_line(127,0,127,95, WHITE);
-}
-
-//Draws the initial grid
-
-
-//((x*7)+3),((y*7)+3)
 
 
 

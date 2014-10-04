@@ -1,3 +1,16 @@
+
+
+void screen(){
+  TV.draw_line(0,0,95,0, WHITE);
+  TV.draw_line(0,0,0,95, WHITE);
+  TV.draw_line(0,95,95,95, WHITE);
+  TV.draw_line(95,0,95,95, WHITE);
+  TV.draw_line(96,0,127,0, WHITE);
+  TV.draw_line(96,0,96,95, WHITE);
+  TV.draw_line(96,95,127,95, WHITE);
+  TV.draw_line(127,0,127,95, WHITE);
+}
+
 void initialGrid(){
   byte x = 0;
   byte y = 0;
@@ -43,8 +56,28 @@ void drawFlag(byte x, byte y){
 
 
 void drawCursor(byte x, byte y){
+  TV.set_pixel(((x*7)+2), ((y*7)+2), WHITE);  //top left
+  TV.set_pixel(((x*7)+2), ((y*7)+3), WHITE);
+  TV.set_pixel(((x*7)+3), ((y*7)+2), WHITE);
+
+
+  TV.set_pixel(((x*7)+9), ((y*7)+9), WHITE);  //bottom right
+  TV.set_pixel(((x*7)+8), ((y*7)+9), WHITE);
+  TV.set_pixel(((x*7)+9), ((y*7)+8), WHITE);
+
+  TV.set_pixel(((x*7)+2), ((y*7)+9), WHITE);  //bottom left
+  TV.set_pixel(((x*7)+3), ((y*7)+9), WHITE);
+  TV.set_pixel(((x*7)+2), ((y*7)+8), WHITE);
+
+
+  TV.set_pixel(((x*7)+9), ((y*7)+2), WHITE);  // top right
+  TV.set_pixel(((x*7)+9), ((y*7)+3), WHITE);
+  TV.set_pixel(((x*7)+8), ((y*7)+2), WHITE);
+
+
 }
 
 
 void clearCursor(byte x, byte y){
 }
+
