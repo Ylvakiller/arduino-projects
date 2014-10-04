@@ -1,4 +1,4 @@
-
+#include <input.inp>
 #include <numbers.ino>
 #include <drawing.ino>
 #include <bombgen.ino>
