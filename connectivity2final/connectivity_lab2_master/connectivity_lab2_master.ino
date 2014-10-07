@@ -1,4 +1,3 @@
-
 void setup() {
   pinMode(A1,OUTPUT);
   digitalWrite(A1,HIGH);
@@ -6,17 +5,14 @@ void setup() {
 
 
 void loop() {
-    
-    //if(Serial.available()) {
-      //make sure its synced
-      delay(15);
-      //send bits
-
+                                      
+      delay(15);                      //Sync delay, due to the fact that the for loop will end with a high there is no need to write a high singnal here
+                                      // Switch between high and low for an idle pulse train of 2 down 7 up
       for(int i = 0; i < 8; i++) {
-        digitalWrite(A1, HIGH); //Pull signal low
+        digitalWrite(A1, HIGH);      //Pull signal low
           delay(2);
-          digitalWrite(A1,LOW);
-          delay(6);
+          digitalWrite(A1,LOW);      //Set signal high again
+          delay(7);
       }
     
 }
