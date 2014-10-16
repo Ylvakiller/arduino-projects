@@ -154,12 +154,12 @@ void drawSideBombs(){
   TV.draw_line(100,5,102,5,WHITE);
   TV.set_pixel(102,6,WHITE);
   TV.draw_line(100,7,102,7,WHITE);    //B
-  
+
   TV.draw_line(105,3,107,3,WHITE);
   TV.draw_line(104,4,104,6,WHITE);
   TV.draw_line(105,7,107,7,WHITE);
   TV.draw_line(107,4,107,6,WHITE);    //O
-  
+
   TV.draw_line(109,3,109,7,WHITE);
   TV.set_pixel(110,4,WHITE);
   TV.set_pixel(111,5,WHITE);
@@ -173,7 +173,7 @@ void drawSideBombs(){
   TV.draw_line(116,5,118,5,WHITE);
   TV.set_pixel(118,6,WHITE);
   TV.draw_line(116,7,118,7,WHITE);    //B
-  
+
   TV.draw_line(121,3,124,3,WHITE);
   TV.set_pixel(120,4,WHITE);
   TV.set_pixel(121,4,WHITE);
@@ -181,29 +181,62 @@ void drawSideBombs(){
   TV.set_pixel(123,6,WHITE);
   TV.set_pixel(124,6,WHITE);
   TV.draw_line(121,7,124,7,WHITE);    //S
-  
+
   //Next row of text
-  
+
   TV.draw_line(99,9,99,13,WHITE);
   TV.draw_line(100,13,102,13,WHITE);  //L
-  
+
   TV.draw_line(103,9,106,9,WHITE);
   TV.set_pixel(103,10,WHITE);
   TV.draw_line(103,11,106,11,WHITE);
   TV.set_pixel(103,12,WHITE);
   TV.draw_line(103,13,106,13,WHITE);  //E
-  
-  TV.draw_line(107,9,110,9,WHITE);
+
+    TV.draw_line(107,9,110,9,WHITE);
   TV.set_pixel(107,10,WHITE);
   TV.draw_line(107,11,110,11,WHITE);
   TV.set_pixel(107,12,WHITE);
   TV.set_pixel(107,13,WHITE);        //F
-  
+
   TV.draw_line(111,9,116,9,WHITE);
   TV.draw_line(113,9,113,13,WHITE);  //T
-  
+
   TV.set_pixel(117,10,WHITE);
   TV.set_pixel(117,12,WHITE);        //:
 }
+
+void drawBombCount(){
+  if (bombsLeft<0){
+    if (bombsleft<=-10){
+      //draw - sign
+      //draw first digit
+      //draw second digit
+    }
+    else{
+      //remove first digit
+      //draw - sign at place of first digit
+      //draw second digit at
+    }
+  }
+  else if (bombsleft>=10){
+    //remove - sign
+    //draw first digit
+    //draw second digit
+  }
+  else{
+    //remove - sign
+    //remove first digit
+    //draw second digit
+  }
+}
+
+/**
+* Place is here the place in the sidepanel, place 1 is for 2 digits, place 2 is for 1 digit (it needs to move to the right to display 1 digit)
+*/
+void drawMinus(byte place){
+TV.draw_line()
+}
+
 
 
