@@ -47,8 +47,11 @@ void loop(){
   screen();
   initialGrid();
   countBombs();
+  pserial.println(bombsLeft);
+  drawSideBombs();
   while (1){
     drawGen();
+    
   }
 }
 

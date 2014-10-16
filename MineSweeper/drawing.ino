@@ -147,3 +147,7 @@ void drawGen(){
   }
 }
 
+void drawSideBombs(){
+TV.draw_line(100,4,100,8,WHITE);
+}
+
