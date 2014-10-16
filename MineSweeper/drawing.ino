@@ -192,6 +192,12 @@ void drawSideBombs(){
   TV.draw_line(103,11,106,11,WHITE);
   TV.set_pixel(103,12,WHITE);
   TV.draw_line(103,13,106,13,WHITE);  //E
+  
+  TV.draw_line(107,9,110,9,WHITE);
+  TV.set_pixel(107,10,WHITE);
+  TV.draw_line(107,11,110,11,WHITE);
+  TV.set_pixel(107,12,WHITE);
+  TV.set_pixel(107,13,WHITE);        //F
 }
 
 
