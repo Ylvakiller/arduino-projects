@@ -14,7 +14,8 @@ byte oldcursorY;
 byte cursorX;
 byte cursorY;
 unsigned long timeStampInput;
-byte input[10] = {0};
+byte input[10] = {
+  0};
 byte grid[13][13] = {
   0};
 //In this grid a 0 means not counted or bombb, a 9 means bomb, a 10 means no bombs are near, spot covered 
@@ -38,19 +39,22 @@ void loop(){
   byte temp = 0;
   while(temp<50){
     if(setBombs()){
-    temp++;
+      temp++;
     }
-    
+
   }
-  
-   TV.begin(PAL,128,96);
+
+  TV.begin(PAL,128,96);
   screen();
   initialGrid();
   countBombs();
   pserial.println(bombsLeft);
+  clearSpace(0);
+  clearSpace(1);
+  clearSpace(2);
   while (1){
     drawGen();
-    
+
   }
 }
 
@@ -65,7 +69,7 @@ void cursorMove(){
 
 void readInput(){
   if(millis()-timeStampInput>200){
-    
+
   }
 }
 
@@ -73,12 +77,13 @@ void readInput(){
 
 /*
 int freeRam () {
-  extern int __heap_start, *__brkval; 
-  int v; 
-  return (int) &v - (__brkval == 0 ? (int) &__heap_start : (int) __brkval); 
-}
-*/
+ extern int __heap_start, *__brkval; 
+ int v; 
+ return (int) &v - (__brkval == 0 ? (int) &__heap_start : (int) __brkval); 
+ }
+ */
 //sets the default screen, leaving a large blank area where the bombs will be
+
 
 
 

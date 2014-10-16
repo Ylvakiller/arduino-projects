@@ -236,8 +236,24 @@ void drawBombCount(){
 /**
 * Place is here the place in the sidepanel, place 1 is for 2 digits, place 2 is for 1 digit (it needs to move to the right to display 1 digit)
 */
-void drawMinus(byte place){
-//TV.draw_line();
+void drawMinusSign(byte place){
+  if(place==1){
+  TV.draw_line(101,21,103,21,WHITE);
+  }else{
+  TV.draw_line(106,21,108,21,WHITE);
+  }
+}
+
+//completely clears a place from any number or sign.
+//place 1 is the - sign, place 2 is the first digit and place 3 is the second digit
+void clearSpace(byte place){
+  if(place==0){
+    TV.draw_rect(101,17,1,7,0,0);
+  }else if (place==1){
+    TV.draw_rect(104,17,4,7,0,0);
+  }else if(place ==2){
+    TV.draw_rect(110,17,4,7,0,0);
+  }
 }
 
 
