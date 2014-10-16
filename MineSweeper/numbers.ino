@@ -170,9 +170,18 @@ void drawSide5(byte place){
 }
 void drawSide6(byte place){
   if(place==1){
-
+    TV.draw_line(105,19,105,22,WHITE);
+    TV.draw_line(106,18,108,18,WHITE);
+    TV.draw_line(106,20,108,20,WHITE);
+    TV.draw_line(106,23,108,23,WHITE);
+    TV.draw_line(108,21,108,22,WHITE);
   }
   else{
+    TV.draw_line(111,19,111,22,WHITE);
+    TV.draw_line(112,18,114,18,WHITE);
+    TV.draw_line(112,20,114,20,WHITE);
+    TV.draw_line(112,23,114,23,WHITE);
+    TV.draw_line(114,21,114,22,WHITE);
   }
 }
 void drawSide7(byte place){
