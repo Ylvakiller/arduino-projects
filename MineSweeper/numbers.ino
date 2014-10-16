@@ -198,16 +198,38 @@ void drawSide7(byte place){
 }
 void drawSide8(byte place){
   if(place==1){
-
+    TV.draw_line(105,18,108,18,WHITE);
+    TV.set_pixel(104,19,WHITE);
+    TV.set_pixel(108,19,WHITE);
+    TV.draw_line(105,20,108,20,WHITE);
+    TV.set_pixel(104,21,WHITE);
+    TV.set_pixel(108,21,WHITE);
+    TV.set_pixel(104,22,WHITE);
+    TV.set_pixel(108,22,WHITE);
+    TV.draw_line(105,23,108,23,WHITE);
   }
   else{
+    TV.draw_line(111,18,114,18,WHITE);
+    TV.set_pixel(110,19,WHITE);
+    TV.set_pixel(114,19,WHITE);
+    TV.draw_line(111,20,114,20,WHITE);
+    TV.set_pixel(110,21,WHITE);
+    TV.set_pixel(114,21,WHITE);
+    TV.set_pixel(110,22,WHITE);
+    TV.set_pixel(114,22,WHITE);
+    TV.draw_line(111,23,114,23,WHITE);
   }
 }
 void drawSide9(byte place){
   if(place==1){
-
+    TV.draw_rect(105,18,3,3,1,0);
+    TV.set_pixel(108,22,WHITE);
+    TV.draw_line(105,23,109,23,WHITE);
   }
   else{
+    TV.draw_rect(111,18,3,3,1,0);
+    TV.set_pixel(114,22,WHITE);
+    TV.draw_line(111,23,115,23,WHITE);
   }
 }
 void drawSide0(byte place){
