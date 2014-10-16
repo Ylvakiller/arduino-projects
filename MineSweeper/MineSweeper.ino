@@ -8,6 +8,7 @@
 TVout TV;
 pollserial pserial;
 
+byte bombsLeft;
 byte oldcursorX;
 byte oldcursorY;
 byte cursorX;
@@ -35,9 +36,11 @@ void setup(){
 
 void loop(){
   byte temp = 0;
-  while(temp<10){
-    setBombs();
+  while(temp<50){
+    if(setBombs()){
     temp++;
+    }
+    
   }
   
    TV.begin(PAL,128,96);
@@ -46,7 +49,6 @@ void loop(){
   countBombs();
   while (1){
     drawGen();
-    
   }
 }
 

@@ -26,6 +26,7 @@ void initialGrid(){
 }
 
 
+
 void clearSquare(byte x, byte y){
   if (TV.get_pixel(((x*7)+3),((y*7)+3))==1){
     TV.draw_rect(((x*7)+3),((y*7)+3),5,5, 0, 0);

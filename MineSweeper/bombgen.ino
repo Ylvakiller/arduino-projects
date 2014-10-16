@@ -1,13 +1,16 @@
 
 
-void setBombs(){  
+boolean setBombs(){  
   byte x = random(0,13);    
   byte y = random(0,13);    
   if(grid[x][y]==0){      
-    grid[x][y]=9; 
+    grid[x][y]=9;
+    return true; 
+  }
+  else{
+    return false;
   }
 }
-
 
 
 
@@ -22,12 +25,15 @@ void countBombs(){
             int i = 0;
             if(count6(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count8(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count9(x, y)){
               i++;
+              bombsLeft++;
             }
             if(i==0){
               grid[x][y] = 10;
@@ -40,12 +46,15 @@ void countBombs(){
             int i = 0;
             if(count2(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count3(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count6(x, y)){
               i++;
+              bombsLeft++;
             }
             if(i==0){
               grid[x][y] = 10;
@@ -58,18 +67,23 @@ void countBombs(){
             int i = 0;
             if(count2(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count3(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count6(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count8(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count9(x, y)){
               i++;
+              bombsLeft++;
             }
             if(i==0){
               grid[x][y] = 10;
@@ -84,12 +98,15 @@ void countBombs(){
             int i = 0;
             if(count4(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count7(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count8(x, y)){
               i++;
+              bombsLeft++;
             }
             if(i==0){
               grid[x][y] = 10;
@@ -102,12 +119,15 @@ void countBombs(){
             int i = 0;
             if(count1(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count2(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count4(x, y)){
               i++;
+              bombsLeft++;
             }
             if(i==0){
               grid[x][y] = 10;
@@ -120,18 +140,23 @@ void countBombs(){
             int i = 0;
             if(count1(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count2(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count4(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count7(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count8(x, y)){
               i++;
+              bombsLeft++;
             }
             if(i==0){
               grid[x][y] = 10;
@@ -144,20 +169,25 @@ void countBombs(){
         else{                  //no x border
           if (y==0){           //top border
             int i = 0;
-            if(count1(x, y)){
-              i++;
-            }
-            if(count2(x, y)){
-              i++;
-            }
-            if(count3(x, y)){
-              i++;
-            }
             if(count4(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count6(x, y)){
               i++;
+              bombsLeft++;
+            }
+            if(count7(x, y)){
+              i++;
+              bombsLeft++;
+            }
+            if(count8(x, y)){
+              i++;
+              bombsLeft++;
+            }
+            if(count9(x, y)){
+              i++;
+              bombsLeft++;
             }
             if(i==0){
               grid[x][y] = 10;
@@ -168,20 +198,25 @@ void countBombs(){
           }
           else if(y==12){            //bottom border
             int i = 0;
+            if(count1(x, y)){
+              i++;
+              bombsLeft++;
+            }
+            if(count2(x, y)){
+              i++;
+              bombsLeft++;
+            }
+            if(count3(x, y)){
+              i++;
+              bombsLeft++;
+            }
             if(count4(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count6(x, y)){
               i++;
-            }
-            if(count7(x, y)){
-              i++;
-            }
-            if(count8(x, y)){
-              i++;
-            }
-            if(count9(x, y)){
-              i++;
+              bombsLeft++;
             }
             if(i==0){
               grid[x][y] = 10;
@@ -194,27 +229,35 @@ void countBombs(){
             int i = 0;
             if(count1(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count2(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count3(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count4(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count6(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count7(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count8(x, y)){
               i++;
+              bombsLeft++;
             }
             if(count9(x, y)){
               i++;
+              bombsLeft++;
             }
             if(i==0){
               grid[x][y] = 10;
@@ -295,4 +338,5 @@ boolean count9(byte x, byte y){
   }
   return false;
 }
+
 
