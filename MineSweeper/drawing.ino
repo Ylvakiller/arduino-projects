@@ -204,43 +204,45 @@ void drawSideBombs(){
 
   TV.set_pixel(117,10,WHITE);
   TV.set_pixel(117,12,WHITE);        //:
-  
+
   TV.draw_rect(99,16,17,9,1,0);      //Square for the actual numbers for the bombcount
 }
 
 void drawBombCount(){
   if (bombsLeft<0){
     if (bombsLeft<=-10){
-      //draw - sign
+      drawMinusSign(1);//draw - sign
       //draw first digit
       //draw second digit
     }
     else{
-      //remove first digit
-      //draw - sign at place of first digit
+      clearSpace(0);//remove minus sign before first digit
+      clearSpace(1);//remove first digit
+      drawMinusSign(2);//draw - sign at place of first digit
       //draw second digit at
     }
   }
   else if (bombsLeft>=10){
-    //remove - sign
+    clearSpace(0);//remove - sign
     //draw first digit
     //draw second digit
   }
   else{
-    //remove - sign
-    //remove first digit
+    clearSpace(0);//remove minus sign
+    clearSpace(1);//remove first digit
     //draw second digit
   }
 }
 
 /**
-* Place is here the place in the sidepanel, place 1 is for 2 digits, place 2 is for 1 digit (it needs to move to the right to display 1 digit)
-*/
+ * Place is here the place in the sidepanel, place 1 is for 2 digits, place 2 is for 1 digit (it needs to move to the right to display 1 digit)
+ */
 void drawMinusSign(byte place){
   if(place==1){
-  TV.draw_line(101,21,103,21,WHITE);
-  }else{
-  TV.draw_line(106,21,108,21,WHITE);
+    TV.draw_line(101,21,103,21,WHITE);
+  }
+  else{
+    TV.draw_line(106,21,108,21,WHITE);
   }
 }
 
@@ -249,12 +251,34 @@ void drawMinusSign(byte place){
 void clearSpace(byte place){
   if(place==0){
     TV.draw_rect(101,17,1,7,0,0);
-  }else if (place==1){
+  }
+  else if (place==1){
     TV.draw_rect(104,17,4,7,0,0);
-  }else if(place ==2){
+  }
+  else if(place ==2){
     TV.draw_rect(110,17,4,7,0,0);
   }
 }
+
+void drawDigit1(byte digit){
+  switch(digit){
+  case 1:
+    drawSide1(1);
+    break;
+  }
+
+}
+
+void drawDigit2(byte digit){
+  switch(digit){
+  case 1:
+    drawSide1(2);
+    break;
+  }
+}
+
+
+
 
 
 
