@@ -148,17 +148,17 @@ void drawGen(){
 }
 
 void drawSideBombs(){
-  TV.draw_line(99,4,99,8,WHITE);
-  TV.draw_line(100,4,102,4,WHITE);
-  TV.set_pixel(102,5,WHITE);
-  TV.draw_line(100,6,102,6,WHITE);
-  TV.set_pixel(102,7,WHITE);
-  TV.draw_line(100,8,102,8,WHITE);    //B
+  TV.draw_line(99,3,99,7,WHITE);
+  TV.draw_line(100,3,102,3,WHITE);
+  TV.set_pixel(102,4,WHITE);
+  TV.draw_line(100,5,102,5,WHITE);
+  TV.set_pixel(102,6,WHITE);
+  TV.draw_line(100,7,102,7,WHITE);    //B
   
-  TV.draw_line(105,4,107,4,WHITE);
-  TV.draw_line(104,5,104,7,WHITE);
-  TV.draw_line(105,8,107,8,WHITE);
-  TV.draw_line(107,5,107,7,WHITE);  //O
+  TV.draw_line(105,3,107,3,WHITE);
+  TV.draw_line(104,4,104,6,WHITE);
+  TV.draw_line(105,7,107,7,WHITE);
+  TV.draw_line(107,4,107,6,WHITE);  //O
 
 }
 
