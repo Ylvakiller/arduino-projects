@@ -237,6 +237,8 @@ void drawSide0(byte place){
   clearSpace(1);
   }
   else{
+    TV.draw_rect(111,18,3,5,1,0);
+    
   }
 }
 

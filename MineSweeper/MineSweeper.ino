@@ -49,8 +49,8 @@ void loop(){
   initialGrid();
   countBombs();
   pserial.println(bombsLeft);
-  drawDigit1(9);
-  drawDigit2(9);
+  drawDigit1(0);
+  drawDigit2(0);
   while (1){
     drawGen();
 
