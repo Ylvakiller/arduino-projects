@@ -9,6 +9,7 @@ void screen(){
   TV.draw_line(96,0,96,95, WHITE);
   TV.draw_line(96,95,127,95, WHITE);
   TV.draw_line(127,0,127,95, WHITE);
+  drawSideBombs();
 }
 
 void initialGrid(){
@@ -22,7 +23,6 @@ void initialGrid(){
     x++;
     y = 0;
   }
-
 }
 
 
