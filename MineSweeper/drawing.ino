@@ -107,38 +107,38 @@ void drawGen(){
     while(y<13){
       switch (grid[x][y]){
       case 1:
-      draw1(x,y);
-      break;
+        draw1(x,y);
+        break;
       case 2:
-      draw2(x,y);
-      break;
+        draw2(x,y);
+        break;
       case 3:
-      draw3(x,y);
-      break;
+        draw3(x,y);
+        break;
       case 4:
-      draw4(x,y);
-      break;
+        draw4(x,y);
+        break;
       case 5:
-      draw5(x,y);
-      break;
+        draw5(x,y);
+        break;
       case 6:
-      draw6(x,y);
-      break;
+        draw6(x,y);
+        break;
       case 7:
-      draw7(x,y);
-      break;
+        draw7(x,y);
+        break;
       case 8:
-      draw8(x,y);
-      break;
+        draw8(x,y);
+        break;
       case 9:
-      drawFlag(x,y);
-      break;
+        drawFlag(x,y);
+        break;
       case 10:
-      drawEmpty(x,y);
-      break;
+        drawEmpty(x,y);
+        break;
       default:
-      drawEmpty(x,y);
-      break;
+        drawEmpty(x,y);
+        break;
       }
       y++;
     }
@@ -148,6 +148,14 @@ void drawGen(){
 }
 
 void drawSideBombs(){
-TV.draw_line(100,4,100,8,WHITE);
+  TV.draw_line(99,4,99,8,WHITE);
+  TV.draw_line(100,4,102,4,WHITE);
+  TV.set_pixel(102,5,WHITE);
+  TV.draw_line(100,6,102,6,WHITE);
+  TV.set_pixel(102,7,WHITE);
+  TV.draw_line(100,8,102,8,WHITE);    //B
+
+
 }
+
 
