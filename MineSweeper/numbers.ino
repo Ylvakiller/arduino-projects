@@ -101,9 +101,11 @@ void drawSide1(byte place){
 }
 void drawSide2(byte place){
   if(place==1){
-
+    TV.set_pixel(105,19,WHITE);
   }
   else{
+    TV.set_pixel(111,19,WHITE);
+    TV.draw_line(112,18,114,18,WHITE);
   }
 }
 void drawSide3(byte place){

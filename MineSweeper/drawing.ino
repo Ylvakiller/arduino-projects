@@ -265,6 +265,33 @@ void drawDigit1(byte digit){
   case 1:
     drawSide1(1);
     break;
+  case 2:
+    drawSide2(1);
+    break;
+  case 3:
+    drawSide3(1);
+    break;
+  case 4:
+    drawSide4(1);
+    break;
+  case 5:
+    drawSide5(1);
+    break;
+  case 6:
+    drawSide6(1);
+    break;
+  case 7:
+    drawSide7(1);
+    break;
+  case 8:
+    drawSide8(1);
+    break;
+  case 9:
+    drawSide9(1);
+    break;
+  case 0:
+    drawSide0(1);
+    break;
   }
 
 }
@@ -274,8 +301,37 @@ void drawDigit2(byte digit){
   case 1:
     drawSide1(2);
     break;
+  case 2:
+    drawSide2(2);
+    break;
+  case 3:
+    drawSide3(2);
+    break;
+  case 4:
+    drawSide4(2);
+    break;
+  case 5:
+    drawSide5(2);
+    break;
+  case 6:
+    drawSide6(2);
+    break;
+  case 7:
+    drawSide7(2);
+    break;
+  case 8:
+    drawSide8(2);
+    break;
+  case 9:
+    drawSide9(2);
+    break;
+  case 0:
+    drawSide0(2);
+    break;
   }
 }
+
+
 
 
 
