@@ -102,15 +102,23 @@ void drawSide1(byte place){
 void drawSide2(byte place){
   if(place==1){
     TV.set_pixel(105,19,WHITE);
+    TV.draw_line(106,18,108,18,WHITE);
+    TV.draw_line(108,19,108,20,WHITE);
+    TV.draw_line(106,21,108,21,WHITE);
+    TV.set_pixel(105,22,WHITE);
+    TV.draw_line(105,23,109,23,WHITE);
   }
   else{
     TV.set_pixel(111,19,WHITE);
     TV.draw_line(112,18,114,18,WHITE);
+    TV.draw_line(114,19,114,20,WHITE);
+    TV.draw_line(112,21,114,21,WHITE);
+    TV.set_pixel(111,22,WHITE);
+    TV.draw_line(111,23,115,23,WHITE);
   }
 }
 void drawSide3(byte place){
   if(place==1){
-
   }
   else{
   }
