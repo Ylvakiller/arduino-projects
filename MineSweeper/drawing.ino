@@ -109,7 +109,7 @@ void drawGen(){
       draw1(x,y);
       break;
       case 2:
-      draw3(x,y);
+      draw2(x,y);
       break;
       case 3:
       draw3(x,y);
@@ -142,6 +142,7 @@ void drawGen(){
       y++;
     }
     x++;
+    y=0;
   }
 }
 

@@ -1,10 +1,10 @@
 void draw1(byte x, byte y){
   clearSquare(x,y);
   TV.draw_line(((x*7)+5),((y*7)+3), ((x*7)+5),((y*7)+8), WHITE);
-  TV.draw_line(((x*7)+6),((y*7)+3), ((x*7)+6),((y*7)+8), WHITE);
+  //TV.draw_line(((x*7)+6),((y*7)+3), ((x*7)+6),((y*7)+8), WHITE);
   TV.set_pixel(((x*7)+4),((y*7)+4), WHITE);
   TV.set_pixel(((x*7)+4),((y*7)+8),WHITE);
-  TV.set_pixel(((x*7)+7),((y*7)+8),WHITE);
+  TV.set_pixel(((x*7)+6),((y*7)+8),WHITE);
 }
 
 void draw2(byte x, byte y){

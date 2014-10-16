@@ -4,12 +4,15 @@
 #include <bombgen.ino>
 #include <animations.ino>
 #include <TVout.h>
-
+#include <pollserial.h>
 TVout TV;
+pollserial pserial;
 
 byte oldcursorX;
 byte oldcursorY;
-
+byte cursorX;
+byte cursorY;
+unsigned long timeStampInput;
 byte input[10] = {0};
 byte grid[13][13] = {
   0};
@@ -23,52 +26,54 @@ byte grid[13][13] = {
 //30 is bomb
 
 void setup(){
-  
-
   randomSeed(analogRead(A5));
-  Serial.begin(9600);
+  //Serial.begin(9600);  Do not use serial with the tbout library
+  TV.set_hbi_hook(pserial.begin(57600));
+  timeStampInput=millis();
+
 }
 
 void loop(){
-  //Serial.println(grid[5][5]);
   byte temp = 0;
   while(temp<10){
     setBombs();
     temp++;
   }
-  //countBombs();
-    TV.begin(PAL,128,96);
+  
+   TV.begin(PAL,128,96);
   screen();
   initialGrid();
-  
-  //Serial.println("Starting griddraw");
-  //drawGen();
-  //Serial.println(freeRam());
-  
+  countBombs();
   while (1){
-    draw1(0,0);
-    byte x = 0;
-    //while (x<13){
-    //}
+    drawGen();
     
-    drawCursor(5,9);
   }
 }
 
 
 //Does the cursor moving
-void cp(){
+void cursorMove(){
+  if(oldcursorX=!cursorX||oldcursorY!=cursorY){
+    clearCursor(oldcursorX,oldcursorY);
+    drawCursor(cursorX,cursorY);
+  }
+}
 
+void readInput(){
+  if(millis()-timeStampInput>200){
+    
+  }
 }
 
 
 
+/*
 int freeRam () {
   extern int __heap_start, *__brkval; 
   int v; 
   return (int) &v - (__brkval == 0 ? (int) &__heap_start : (int) __brkval); 
 }
-
+*/
 //sets the default screen, leaving a large blank area where the bombs will be
 
 

@@ -4,9 +4,10 @@ void setBombs(){
   byte x = random(0,13);    
   byte y = random(0,13);    
   if(grid[x][y]==0){      
-    grid[x][y]==9; 
+    grid[x][y]=9; 
   }
 }
+
 
 
 

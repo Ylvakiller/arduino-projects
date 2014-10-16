@@ -1,5 +1,6 @@
 byte Y, Yold, X, Xold;
 int i = 0;
+/*
 void storeInput(){
   Xold = X;
   readX();
@@ -13,8 +14,7 @@ void storeInput(){
       i++;
     }
   }
-  
-  
+    
   Yold = Y;
   readY();
   if (Y!=Yold&&Y!=1){
@@ -27,9 +27,10 @@ void storeInput(){
       i++;
     }
   }
-}
+}*/
 
-void readX(){
+byte readX(){
+  byte X;
   if(analogRead(A0)<400){
     X = 0;
   }
@@ -39,10 +40,12 @@ void readX(){
   else{
     X = 1;
   }
+  return X;
 }
 
 
-void readY(){
+byte readY(){
+  byte Y;
   if(analogRead(A1)<400){
     Y = 0;
   }
@@ -52,6 +55,7 @@ void readY(){
   else{
     Y = 1;
   }
+  return Y;
 }
 
 void button(){
