@@ -204,11 +204,13 @@ void drawSideBombs(){
 
   TV.set_pixel(117,10,WHITE);
   TV.set_pixel(117,12,WHITE);        //:
+  
+  TV.draw_rect(99,16,17,9,1,0);      //Square for the actual numbers for the bombcount
 }
 
 void drawBombCount(){
   if (bombsLeft<0){
-    if (bombsleft<=-10){
+    if (bombsLeft<=-10){
       //draw - sign
       //draw first digit
       //draw second digit
@@ -219,7 +221,7 @@ void drawBombCount(){
       //draw second digit at
     }
   }
-  else if (bombsleft>=10){
+  else if (bombsLeft>=10){
     //remove - sign
     //draw first digit
     //draw second digit
@@ -235,7 +237,7 @@ void drawBombCount(){
 * Place is here the place in the sidepanel, place 1 is for 2 digits, place 2 is for 1 digit (it needs to move to the right to display 1 digit)
 */
 void drawMinus(byte place){
-TV.draw_line()
+//TV.draw_line();
 }
 
 
