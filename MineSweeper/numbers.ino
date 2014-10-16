@@ -137,9 +137,16 @@ void drawSide3(byte place){
 }
 void drawSide4(byte place){
   if(place==1){
-
+    TV.draw_line(105,18,105,21,WHITE);
+    TV.set_pixel(106,21,WHITE);
+    TV.set_pixel(107,21,WHITE);
+    TV.draw_line(108,18,108,23,WHITE);
   }
   else{
+    TV.draw_line(111,18,111,21,WHITE);
+    TV.set_pixel(112,21,WHITE);
+    TV.set_pixel(113,21,WHITE);
+    TV.draw_line(114,18,114,23,WHITE);
   }
 }
 void drawSide5(byte place){
@@ -179,11 +186,13 @@ void drawSide9(byte place){
 }
 void drawSide0(byte place){
   if(place==1){
-
+  clearSpace(1);
   }
   else{
   }
 }
+
+
 
 
 
