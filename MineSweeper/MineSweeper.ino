@@ -6,11 +6,15 @@
 #include <TVout.h>
 TVout TV;
 
+#include <pollserial.h>
+pollserial pserial;
+
 byte cursorX;
 byte cursorY;
 byte cposX;
 byte cposY;
 byte bombsLeft;
+unsigned long timestamp;
 
 byte grid[13][13] = {
   0};
@@ -21,15 +25,18 @@ byte grid[13][13] = {
 //20 says no bomb near, area flagged
 //21 till 28 say how many bombs are near but area is flagged
 //29 is bomb that is flagged
-//30 is bomb
+//30 is bomb that is exposed
 
 void setup(){
   randomSeed(analogRead(A5));
   pinMode(A0, INPUT);
+  pinMode(A1, INPUT);
+  pinMode(A2, INPUT);
   cursorY=1;
   cursorX=1;
   cposX=0;
   cposY=0;
+  TV.set_hbi_hook(pserial.begin(57600));
 }
 
 void loop(){
@@ -43,13 +50,21 @@ void loop(){
   screen();
   initialGrid();
   countBombs();
+  drawDigit2(0);
+  boolean temp1=false;
+  boolean temp2 = false;
+  unsigned long oldTimeStamp;
   while (1){
     //drawGen();
 
-    //drawDigit2(0);
-
     getCursorMovement();
+    if (button()){
+      if(millis()-oldTimeStamp<400){    //long press
+      
+      }else{                            //short press
 
+      }
+    }
   }
 }
 
@@ -155,26 +170,16 @@ void getCursorMovement(){
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+boolean button(){
+  int temp = analogRead(A2);
+  if(temp<10){
+    drawDigit2(1);
+    return true;
+  }
+  else if(temp>100){
+    drawDigit2(0);
+    timestamp=millis();
+    return false;
+  }
+}
 

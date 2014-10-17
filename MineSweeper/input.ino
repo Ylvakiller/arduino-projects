@@ -58,6 +58,7 @@ byte readY(){
   return Y;
 }
 
+/*
 void button(){
   unsigned long timeStamp;
   boolean temp1 = false;
@@ -73,7 +74,7 @@ void button(){
     }
   }
   
-}
+}*/
 
 
 
