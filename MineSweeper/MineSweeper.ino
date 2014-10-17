@@ -1,4 +1,4 @@
-#include <input.in>
+
 #include <numbers.ino>
 #include <drawing.ino>
 #include <bombgen.ino>
@@ -8,14 +8,10 @@
 TVout TV;
 pollserial pserial;
 
-byte bombsLeft;
-byte oldcursorX;
-byte oldcursorY;
 byte cursorX;
 byte cursorY;
-unsigned long timeStampInput;
-byte input[10] = {
-  0};
+byte bombsLeft;
+
 byte grid[13][13] = {
   0};
 //In this grid a 0 means not counted or bombb, a 9 means bomb, a 10 means no bombs are near, spot covered 
@@ -29,49 +25,32 @@ byte grid[13][13] = {
 
 void setup(){
   randomSeed(analogRead(A5));
-  //Serial.begin(9600);  Do not use serial with the tbout library
-  TV.set_hbi_hook(pserial.begin(57600));
-  timeStampInput=millis();
-
+  pinMode(A0, INPUT);
+  
 }
 
 void loop(){
   byte temp = 0;
-  while(temp<50){
+  while(temp<10){
     if(setBombs()){
-      temp++;
+      temp++; 
     }
-
   }
-
   TV.begin(PAL,128,96);
   screen();
   initialGrid();
   countBombs();
-  pserial.println(bombsLeft);
-  drawDigit1(0);
-  drawDigit2(0);
   while (1){
     drawGen();
 
-  }
-}
-
-
-//Does the cursor moving
-void cursorMove(){
-  if(oldcursorX=!cursorX||oldcursorY!=cursorY){
-    clearCursor(oldcursorX,oldcursorY);
-    drawCursor(cursorX,cursorY);
-  }
-}
-
-void readInput(){
-  if(millis()-timeStampInput>200){
+     
+    drawDigit1(0);
+    drawDigit2(0);
+    
+    getCursorMovement();
 
   }
 }
-
 
 
 /*
@@ -83,7 +62,65 @@ int freeRam () {
  */
 //sets the default screen, leaving a large blank area where the bombs will be
 
+void moveCursorLeft(){
+}
 
+void moveCursorRight(){
+}
+
+void moveCursorUp(){
+}
+
+void moveCursorDown(){
+}
+
+
+
+void getCursorMovement(){
+  
+  byte oldCursorX = cursorX;
+  byte oldCursorY = cursorY;
+  byte temp = analogRead(A0);
+  if(temp<200){
+    cursorX = 0;
+  }
+  else if (temp>400&&temp<600){
+    cursorX=1;
+  }
+  else if (temp>900){
+    cursorX=2;
+  }
+  
+  temp = analogRead(A1);
+  if(temp<200){
+    cursorY = 0;
+  }
+  else if (temp>400&&temp<600){
+    cursorY=1;
+  }
+  else if (temp>900){
+    cursorY=2;
+  }
+
+  if(oldCursorX!=cursorX){
+    if(cursorX==0){
+      moveCursorLeft();
+    }
+    else if(cursorX==2){
+      moveCursorRight();
+    }
+  }
+
+  
+  if(oldCursorY!=cursorY){
+    if(cursorY==0){
+      moveCursorUp();
+    }
+    else if(cursorY==2){
+      moveCursorDown();
+    }
+  }
+}
 
 
 

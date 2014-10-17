@@ -154,7 +154,6 @@ void drawSideBombs(){
   TV.draw_line(100,5,102,5,WHITE);
   TV.set_pixel(102,6,WHITE);
   TV.draw_line(100,7,102,7,WHITE);    //B
-
   TV.draw_line(105,3,107,3,WHITE);
   TV.draw_line(104,4,104,6,WHITE);
   TV.draw_line(105,7,107,7,WHITE);
@@ -181,9 +180,8 @@ void drawSideBombs(){
   TV.set_pixel(123,6,WHITE);
   TV.set_pixel(124,6,WHITE);
   TV.draw_line(121,7,124,7,WHITE);    //S
-
+  
   //Next row of text
-
   TV.draw_line(99,9,99,13,WHITE);
   TV.draw_line(100,13,102,13,WHITE);  //L
 
@@ -193,7 +191,7 @@ void drawSideBombs(){
   TV.set_pixel(103,12,WHITE);
   TV.draw_line(103,13,106,13,WHITE);  //E
 
-    TV.draw_line(107,9,110,9,WHITE);
+  TV.draw_line(107,9,110,9,WHITE);
   TV.set_pixel(107,10,WHITE);
   TV.draw_line(107,11,110,11,WHITE);
   TV.set_pixel(107,12,WHITE);
@@ -204,8 +202,8 @@ void drawSideBombs(){
 
   TV.set_pixel(117,10,WHITE);
   TV.set_pixel(117,12,WHITE);        //:
-
-  TV.draw_rect(99,16,17,9,1,0);      //Square for the actual numbers for the bombcount
+  //TV.draw_rect(99,16,17,9,1,0);      //Square for the actual numbers for the bombcount
+  
 }
 
 void drawBombCount(){

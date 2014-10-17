@@ -75,12 +75,5 @@ void button(){
   
 }
 
-void clearBuffer(){
-  i = 0;
-  while (i<10){
-    input[i] = 0;
-    i++;
-  }
-  i=0;
-}
+
 
