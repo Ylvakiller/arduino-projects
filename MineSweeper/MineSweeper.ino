@@ -36,6 +36,7 @@ void setup(){
   cursorX=1;
   cposX=0;
   cposY=0;
+  digitalWrite(A2,HIGH);
   //TV.set_hbi_hook(pserial.begin(57600));
 }
 
@@ -84,16 +85,6 @@ void loop(){
     }
   }
 }
-
-
-/*
-int freeRam () {
- extern int __heap_start, *__brkval; 
- int v; 
- return (int) &v - (__brkval == 0 ? (int) &__heap_start : (int) __brkval); 
- }
- */
-//sets the default screen, leaving a large blank area where the bombs will be
 
 void moveCursorLeft(){
   clearCursor(cposX,cposY);
