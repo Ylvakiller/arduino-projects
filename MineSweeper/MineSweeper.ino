@@ -2,7 +2,6 @@
 #include <numbers.ino>
 #include <drawing.ino>
 #include <bombgen.ino>
-#include <animations.ino>
 #include <TVout.h>
 TVout TV;
 
@@ -59,8 +58,8 @@ void loop(){
 
     getCursorMovement();
     if (button()){
-      if(millis()-oldTimeStamp<400){    //long press
-      
+      if(millis()-oldTimeStamp<300){    //long press
+        
       }else{                            //short press
 
       }
