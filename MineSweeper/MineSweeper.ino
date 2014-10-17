@@ -4,12 +4,12 @@
 #include <bombgen.ino>
 #include <animations.ino>
 #include <TVout.h>
-#include <pollserial.h>
 TVout TV;
-pollserial pserial;
 
 byte cursorX;
 byte cursorY;
+byte cposX;
+byte cposY;
 byte bombsLeft;
 
 byte grid[13][13] = {
@@ -26,7 +26,10 @@ byte grid[13][13] = {
 void setup(){
   randomSeed(analogRead(A5));
   pinMode(A0, INPUT);
-  
+  cursorY=1;
+  cursorX=1;
+  cposX=0;
+  cposY=0;
 }
 
 void loop(){
@@ -41,12 +44,10 @@ void loop(){
   initialGrid();
   countBombs();
   while (1){
-    drawGen();
+    //drawGen();
 
-     
-    drawDigit1(0);
-    drawDigit2(0);
-    
+    //drawDigit2(0);
+
     getCursorMovement();
 
   }
@@ -63,24 +64,56 @@ int freeRam () {
 //sets the default screen, leaving a large blank area where the bombs will be
 
 void moveCursorLeft(){
+  clearCursor(cposX,cposY);
+  if(cposX==0){
+    cposX=12;
+  }
+  else{
+    cposX--;
+  }
+  drawCursor(cposX,cposY);
 }
 
 void moveCursorRight(){
+  clearCursor(cposX,cposY);  
+  if(cposX==12){
+    cposX=0;
+  }
+  else{
+    cposX++;
+  }
+  drawCursor(cposX,cposY);
+
 }
 
 void moveCursorUp(){
+  clearCursor(cposX,cposY);  
+  if(cposY==0){
+    cposY=12;
+  }
+  else{
+    cposY--;
+  }
+  drawCursor(cposX,cposY);
 }
 
 void moveCursorDown(){
+  clearCursor(cposX,cposY);  
+  if(cposY==12){
+    cposY=0;
+  }
+  else{
+    cposY++;
+  }
+  drawCursor(cposX,cposY);
 }
 
 
 
 void getCursorMovement(){
-  
   byte oldCursorX = cursorX;
   byte oldCursorY = cursorY;
-  byte temp = analogRead(A0);
+  int temp = analogRead(A0);
   if(temp<200){
     cursorX = 0;
   }
@@ -90,7 +123,7 @@ void getCursorMovement(){
   else if (temp>900){
     cursorX=2;
   }
-  
+
   temp = analogRead(A1);
   if(temp<200){
     cursorY = 0;
@@ -111,7 +144,7 @@ void getCursorMovement(){
     }
   }
 
-  
+
   if(oldCursorY!=cursorY){
     if(cursorY==0){
       moveCursorUp();
@@ -121,6 +154,7 @@ void getCursorMovement(){
     }
   }
 }
+
 
 
 
