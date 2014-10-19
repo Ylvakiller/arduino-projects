@@ -6,8 +6,8 @@
 #include <emptyDetection.ino>
 TVout TV;
 
-#include <pollserial.h>
-pollserial pserial;
+//#include <pollserial.h>
+//pollserial pserial;
 byte startBombs;
 byte cursorX;
 byte cursorY;
@@ -43,7 +43,7 @@ void setup(){
   cposX=0;
   cposY=0;
   digitalWrite(A2,HIGH);
-  TV.set_hbi_hook(pserial.begin(57600));
+  //TV.set_hbi_hook(pserial.begin(57600));
   startBombs = 20;
 }
 
@@ -55,16 +55,17 @@ void loop(){
     }
   }
   countBombs();
-  calculateEmptyArray();
+  //calculateEmptyArray();
   TV.begin(PAL,128,96);
   screen();
   initialGrid();
   
-  pserial.println("This is wierd");
+  //pserial.println("This is wierd");
   boolean temp1,temp2,temp2old;
+  drawWinScreen();
     //drawDetection();
   while (1){
-    //displayBombsLeft();
+    displayBombsLeft();
     //drawGen();
     checkWin();
     

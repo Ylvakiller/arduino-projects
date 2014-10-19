@@ -202,7 +202,7 @@ void drawSideBombs(){
 
   TV.set_pixel(117,10,WHITE);
   TV.set_pixel(117,12,WHITE);        //:
-  //TV.draw_rect(99,16,17,9,1,0);      //Square for the actual numbers for the bombcount
+  TV.draw_rect(99,16,17,9,1,0);      //Square for the actual numbers for the bombcount
 
 }
 
@@ -309,6 +309,44 @@ void drawDigit2(byte digit){
     old2=digit;
   }
 
+}
+
+void drawWinScreen(){
+  TV.draw_line(99,31,99,32,WHITE);            //Y
+  TV.draw_line(103,31,103,32,WHITE);
+  TV.set_pixel(100,33,WHITE);  
+  TV.set_pixel(102,33,WHITE);
+  TV.draw_line(101,34,101,37,WHITE);
+  
+  TV.draw_line(106,32,106,36,WHITE);          //O
+  TV.draw_line(110,32,110,36,WHITE);
+  TV.draw_line(107,31,110,31,WHITE);
+  TV.draw_line(107,37,110,37,WHITE);
+  
+  TV.draw_line(113,31,113,36,WHITE);        //U
+  TV.draw_line(117,31,117,36,WHITE);
+  TV.draw_line(114,37,118,37,WHITE);
+  
+  TV.draw_line(99,41,99,43,WHITE);        //W
+  TV.draw_line(100,44,100,45,WHITE);
+  TV.draw_line(101,46,103,42,WHITE);
+  TV.draw_line(104,44,104,45,WHITE);
+  TV.draw_line(105,46,107,42,WHITE);
+  TV.set_pixel(107,41,WHITE);
+  
+  TV.set_pixel(110,40,WHITE);              //I
+  TV.draw_line(110,42,110,46,WHITE);
+  
+  TV.draw_line(113,41,113,46,WHITE);        //N
+  TV.draw_line(114,42,114,44,WHITE);
+  TV.draw_line(114,43,114,45,WHITE);
+  TV.draw_line(117,41,117,46,WHITE);
+}
+
+void gameOver(){
+  
+  while(true){
+  }
 }
 
 
