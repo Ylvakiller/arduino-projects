@@ -13,6 +13,8 @@ byte cursorY;
 byte cposX;
 byte cposY;
 byte bombsLeft;
+byte amountCovered;
+byte flags;
 unsigned long timestamp;
 boolean allowButton;
 
@@ -32,6 +34,8 @@ void setup(){
   pinMode(A0, INPUT);
   pinMode(A1, INPUT);
   pinMode(A2, INPUT);
+  amountCovered = 169;
+  flags = 0;
   cursorY=1;
   cursorX=1;
   cposX=0;
@@ -397,6 +401,8 @@ void removeFlag(){
 void bombExplosion(){
   //game over
 }
+
+
 
 
 
