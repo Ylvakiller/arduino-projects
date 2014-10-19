@@ -59,8 +59,6 @@ void loop(){
   TV.begin(PAL,128,96);
   screen();
   initialGrid();
-  
-  //pserial.println("This is wierd");
   boolean temp1,temp2,temp2old;
   
     //drawDetection();
@@ -312,7 +310,8 @@ void removeCover(){
     break;
   case 9:
     grid[cposX][cposY]=30;          //bomb
-    bombExplosion();
+    drawCross(cposX,cposY);
+    drawGameOver();
     break;
   case 10:
     grid[cposX][cposY]=19;
@@ -433,9 +432,6 @@ void removeFlag(){
 }
 
 
-void bombExplosion(){
-  //game over
-}
 
 //Counts the total amount of bombs left and returns an int type for that
 int countBombsLeft(){

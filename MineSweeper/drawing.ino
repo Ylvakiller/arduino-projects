@@ -345,10 +345,44 @@ void drawWinScreen(){
   }
 }
 
-void gameOver(){
+void drawGameOver(){
+  TV.draw_line(99,31,99,32,WHITE);            //Y
+  TV.draw_line(103,31,103,32,WHITE);
+  TV.set_pixel(100,33,WHITE);  
+  TV.set_pixel(102,33,WHITE);
+  TV.draw_line(101,34,101,37,WHITE);
+  
+  TV.draw_line(106,32,106,36,WHITE);          //O
+  TV.draw_line(110,32,110,36,WHITE);
+  TV.draw_line(107,31,110,31,WHITE);
+  TV.draw_line(107,37,110,37,WHITE);
+  
+  TV.draw_line(113,31,113,36,WHITE);        //U
+  TV.draw_line(117,31,117,36,WHITE);
+  TV.draw_line(114,37,118,37,WHITE);
+  
+  TV.draw_line(99,41,99,47,WHITE);          //F
+  TV.draw_line(100,41,102,41,WHITE);
+  TV.draw_line(100,44,102,44,WHITE);
+  
+  TV.draw_line(104,42,104,47,WHITE);        //A
+  TV.draw_line(105,41,108,41,WHITE);
+  TV.draw_line(105,44,108,44,WHITE);
+  TV.draw_line(108,42,108,47,WHITE);
+  
+  TV.set_pixel(111,40,WHITE);              //I
+  TV.draw_line(111,42,111,47,WHITE);
+  
+  TV.draw_line(114,41,114,47,WHITE);      //L
+  TV.draw_line(115,47,118,47,WHITE);
   
   while(true){
   }
+}
+void drawCross(byte x, byte y){
+  clearSquare(x,y);
+  TV.draw_line(((x*7)+3),((y*7)+3),((x*7)+8),((y*7)+8), WHITE);
+  TV.draw_line(((x*7)+3),((y*7)+8),((x*7)+8),((y*7)+3), WHITE);
 }
 
 
