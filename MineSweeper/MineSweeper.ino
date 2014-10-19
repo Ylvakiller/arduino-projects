@@ -7,7 +7,7 @@ TVout TV;
 
 //#include <pollserial.h>
 //pollserial pserial;
-
+byte startBombs;
 byte cursorX;
 byte cursorY;
 byte cposX;
@@ -42,11 +42,12 @@ void setup(){
   cposY=0;
   digitalWrite(A2,HIGH);
   //TV.set_hbi_hook(pserial.begin(57600));
+  startBombs = 12;
 }
 
 void loop(){
   byte temp = 0;
-  while(temp<10){
+  while(temp<startBombs){
     if(setBombs()){
       temp++; 
     }
@@ -267,34 +268,42 @@ void removeCover(){
   case 1:
     grid[cposX][cposY]=11;
     draw1(cposX,cposY);
+    amountCovered--;
     break;
   case 2:
     grid[cposX][cposY]=12;
     draw2(cposX,cposY);
+    amountCovered--;
     break;
   case 3:
     grid[cposX][cposY]=13;
     draw3(cposX,cposY);
+    amountCovered--;
     break;
   case 4:
     grid[cposX][cposY]=14;
     draw4(cposX,cposY);
+    amountCovered--;
     break;
   case 5:
     grid[cposX][cposY]=15;
     draw5(cposX,cposY);
+    amountCovered--;
     break;
   case 6:
     grid[cposX][cposY]=16;
     draw6(cposX,cposY);
+    amountCovered--;
     break;
   case 7:
     grid[cposX][cposY]=17;
     draw7(cposX,cposY);
+    amountCovered--;
     break;
   case 8:
     grid[cposX][cposY]=18;
     draw8(cposX,cposY);
+    amountCovered--;
     break;
   case 9:
     grid[cposX][cposY]=30;          //bomb
@@ -303,6 +312,7 @@ void removeCover(){
   case 10:
     grid[cposX][cposY]=19;
     drawEmpty(cposX,cposY);
+    amountCovered--;
     break;
   }
 }
@@ -312,42 +322,52 @@ void placeFlag(){
   case 1:
     grid[cposX][cposY]=21;
     drawFlag(cposX,cposY);
+    flags++:
     break;
   case 2:
     grid[cposX][cposY]=22;
     drawFlag(cposX,cposY);
+    flags++:
     break;
   case 3:
     grid[cposX][cposY]=23;
     drawFlag(cposX,cposY);
+    flags++:
     break;
   case 4:
     grid[cposX][cposY]=24;
     drawFlag(cposX,cposY);
+    flags++:
     break;
   case 5:
     grid[cposX][cposY]=25;
     drawFlag(cposX,cposY);
+    flags++:
     break;
   case 6:
     grid[cposX][cposY]=26;
     drawFlag(cposX,cposY);
+    flags++:
     break;
   case 7:
     grid[cposX][cposY]=27;
     drawFlag(cposX,cposY);
+    flags++:
     break;
   case 8:
     grid[cposX][cposY]=28;
     drawFlag(cposX,cposY);
+    flags++:
     break;
   case 9:
     grid[cposX][cposY]=29;          //bomb
     drawFlag(cposX,cposY);
+    flags++:
     break;
   case 10:
     grid[cposX][cposY]=20;
     drawFlag(cposX,cposY);
+    flags++:
     break;
   }
 }
@@ -357,42 +377,52 @@ void removeFlag(){
   case 21:
     grid[cposX][cposY]=1;
     drawSquare(cposX,cposY);
+    flags--;
     break;
   case 22:
     grid[cposX][cposY]=2;
     drawSquare(cposX,cposY);
+    flags--;
     break;
   case 23:
     grid[cposX][cposY]=3;
     drawSquare(cposX,cposY);
+    flags--;
     break;
   case 24:
     grid[cposX][cposY]=4;
     drawSquare(cposX,cposY);
+    flags--;
     break;
   case 25:
     grid[cposX][cposY]=5;
     drawSquare(cposX,cposY);
+    flags--;
     break;
   case 26:
     grid[cposX][cposY]=6;
     drawSquare(cposX,cposY);
+    flags--;
     break;
   case 27:
     grid[cposX][cposY]=7;
     drawSquare(cposX,cposY);
+    flags--;
     break;
   case 28:
     grid[cposX][cposY]=8;
     drawSquare(cposX,cposY);
+    flags--;
     break;
   case 29:
     grid[cposX][cposY]=9;          //bomb
     drawSquare(cposX,cposY);
+    flags--;
     break;
   case 20:
     grid[cposX][cposY]=10;
     drawSquare(cposX,cposY);
+    flags--;
     break;
   }
 }
@@ -400,6 +430,16 @@ void removeFlag(){
 
 void bombExplosion(){
   //game over
+}
+
+//Counts the total amount of bombs left and returns an int type for that
+int countBombsLeft(){
+  
+}
+
+//Displays the amount of bombs left
+void displayBombsLeft(){
+  
 }
 
 
