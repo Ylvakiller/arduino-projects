@@ -57,6 +57,7 @@ void loop(){
   screen();
   initialGrid();
   countBombs();
+  CalculateEmptyArray();
   boolean temp1,temp2,temp2old;
   while (1){  
     //drawGen();

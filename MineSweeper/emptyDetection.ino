@@ -1,5 +1,4 @@
-byte emptyArray[13][13] = {
-  0};      //empty array
+byte emptyArray[13][13] = {0};      //empty array
 
 void CalculateEmptyArray(){
   byte x = 0;
@@ -55,13 +54,26 @@ void CalculateEmptyArray(){
 
 
 
-
+/**
+Both checkLeft and checkTop assume that the algorithm where these functions will be used will run first from top to bottom and then from left to right
+Meaning that the assumption is that if the position either to the left or to the top (depending on the functions) has already gotten a number.
+They also both assume that the array cannot get out of bounds by the values given to them.
+Meaning the you should not run checkLeft if you are on the left most collum, and you should not run checkTop if you are on the top row.
+*/
 boolean checkLeft(byte x, byte y){
-  //checks at the numerical position 2
+  if (grid[x-1][y]==10){
+    return true;
+  }else{
+    return false;
+  }
 }
 
 boolean checkTop(byte x, byte y){
-  //checks at the numerical position 3
+  if (grid[x][y-1]==10){
+    return true;
+  }else{
+    return false;
+  }
 }
 
 //Changes all the values in the empty array that have a value of second towards the value of first
