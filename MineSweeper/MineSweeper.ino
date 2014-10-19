@@ -479,6 +479,10 @@ void checkWin(){
 
 }
 
+void openEmpty(){
+  
+}
+
 
 
 
