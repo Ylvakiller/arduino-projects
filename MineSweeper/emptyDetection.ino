@@ -78,6 +78,18 @@ boolean checkTop(byte x, byte y){
 
 //Changes all the values in the empty array that have a value of second towards the value of first
 void transformBlob(byte first,byte second){
+  byte x = 0;
+  byte y = 0;
+  while (x<13){
+    while (y<13){
+      if (emptyArray[x][y]==second){
+          emptyArray[x][y]=first;        //if the blob at the correct position is of the type we want to change then change it, otherwise do nothing
+      }
+      y++;
+    }
+    y=0;
+    x++;
+  }
 }
 
 
