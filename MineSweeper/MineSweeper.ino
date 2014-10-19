@@ -433,13 +433,21 @@ void bombExplosion(){
 }
 
 //Counts the total amount of bombs left and returns an int type for that
-int countBombsLeft(){
+byte countBombsLeft(){
   return (amountCovered-flags);
 }
 
 //Displays the amount of bombs left
 void displayBombsLeft(){
-
+  if (countBombsLeft()<0){
+    if (countBombsLeft()<10){      //negative one digit number
+        clearSpace(0);
+        drawMinusSign(2);
+        drawDigit2(countBombsLeft());
+    }else{                         //negative two digit number
+        drawMinusSign
+    }
+  }
 }
 
 

@@ -236,7 +236,7 @@ void drawBombCount(){
  * Place is here the place in the sidepanel, place 1 is for 2 digits, place 2 is for 1 digit (it needs to move to the right to display 1 digit)
  */
 void drawMinusSign(byte place){
-  if(place==1){
+  if(place==0){
     TV.draw_line(101,21,103,21,WHITE);
   }
   else{
