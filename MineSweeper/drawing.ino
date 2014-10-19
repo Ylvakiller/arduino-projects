@@ -206,32 +206,6 @@ void drawSideBombs(){
 
 }
 
-void drawBombCount(){
-  if (bombsLeft<0){
-    if (bombsLeft<=-10){
-      drawMinusSign(1);//draw - sign
-      //draw first digit
-      //draw second digit
-    }
-    else{
-      clearSpace(0);//remove minus sign before first digit
-      clearSpace(1);//remove first digit
-      drawMinusSign(2);//draw - sign at place of first digit
-      //draw second digit at
-    }
-  }
-  else if (bombsLeft>=10){
-    clearSpace(0);//remove - sign
-    //draw first digit
-    //draw second digit
-  }
-  else{
-    clearSpace(0);//remove minus sign
-    clearSpace(1);//remove first digit
-    //draw second digit
-  }
-}
-
 /**
  * Place is here the place in the sidepanel, place 1 is for 2 digits, place 2 is for 1 digit (it needs to move to the right to display 1 digit)
  */

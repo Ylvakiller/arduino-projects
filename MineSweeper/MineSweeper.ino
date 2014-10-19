@@ -12,7 +12,7 @@ byte cursorX;
 byte cursorY;
 byte cposX;
 byte cposY;
-byte bombsLeft;
+int oldBombsLeft;
 byte amountCovered;
 byte flags;
 unsigned long timestamp;
@@ -42,7 +42,8 @@ void setup(){
   cposY=0;
   digitalWrite(A2,HIGH);
   //TV.set_hbi_hook(pserial.begin(57600));
-  startBombs = 12;
+  startBombs = 1;
+  
 }
 
 void loop(){
@@ -59,6 +60,7 @@ void loop(){
   boolean temp1,temp2,temp2old;
   while (1){  
     //drawGen();
+    displayBombsLeft();
     temp2old=temp2;
     getCursorMovement();
     if(allowButton){                  //if this is true then the joystick is not on one of the sides, should stop false short presses
@@ -66,12 +68,10 @@ void loop(){
         if(millis()-timestamp>300){    //long press
           temp1=true;                  //temp1 defines a long or a short press
           temp2=true;
-          drawDigit1(1);
         }
         else{  //short press, made to debounce when moving the cursor
           temp1=false;
           temp2=true;                //means button is pressed
-          drawDigit1(2);
         }
       }
       else{
@@ -80,7 +80,6 @@ void loop(){
 
       if(temp2old&&!temp2){        //means button is just released          
         if(temp1){
-
           longPress();
         }
         else{
@@ -192,11 +191,9 @@ void getCursorMovement(){
 boolean button(){
   int temp = analogRead(A2);
   if(temp<10){
-    drawDigit2(1);
     return true;
   }
   else if(temp>100){
-    drawDigit2(0);
     timestamp=millis();
     return false;
   }
@@ -433,22 +430,47 @@ void bombExplosion(){
 }
 
 //Counts the total amount of bombs left and returns an int type for that
-byte countBombsLeft(){
-  return (amountCovered-flags);
+int countBombsLeft(){
+  return (startBombs-flags);
 }
 
 //Displays the amount of bombs left
 void displayBombsLeft(){
-  if (countBombsLeft()<0){
-    if (countBombsLeft()<10){      //negative one digit number
+  if (oldBombsLeft!=countBombsLeft()){
+  
+    if (countBombsLeft()<0){
+      if (abs(countBombsLeft())<10){      //negative one digit number
         clearSpace(0);
-        drawMinusSign(2);
-        drawDigit2(countBombsLeft());
-    }else{                         //negative two digit number
-        drawMinusSign
+        drawMinusSign(1);
+        drawDigit2(abs(countBombsLeft()));
+      }
+      else if(abs(countBombsLeft())<100){    //negative two digit number 
+        drawMinusSign(0);
+        drawDigit1(abs(countBombsLeft()/10));
+        drawDigit2(abs(countBombsLeft()%10));
+      }
+      else{                         //negative overflow number
+        drawMinusSign(0);
+        drawDigit1(9);
+        drawDigit2(9);
+      }
     }
+    else{
+      if (countBombsLeft()<10){      //positive one digit number
+        clearSpace(0);
+        clearSpace(1);
+        drawDigit2(countBombsLeft());
+      }
+      else{                        //positive two digit number
+        clearSpace(0);
+        drawDigit1((countBombsLeft()/10));
+        drawDigit2(countBombsLeft()%10);
+      }
+    }
+    oldBombsLeft=countBombsLeft();
   }
 }
+
 
 
 

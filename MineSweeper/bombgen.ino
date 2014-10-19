@@ -5,7 +5,6 @@ boolean setBombs(){
   byte y = random(0,13);    
   if(grid[x][y]==0){      
     grid[x][y]=9;
-    bombsLeft++;
     return true; 
   }
   else{
