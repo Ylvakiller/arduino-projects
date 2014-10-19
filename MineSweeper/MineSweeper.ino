@@ -6,8 +6,8 @@
 #include <emptyDetection.ino>
 TVout TV;
 
-//#include <pollserial.h>
-//pollserial pserial;
+#include <pollserial.h>
+pollserial pserial;
 byte startBombs;
 byte cursorX;
 byte cursorY;
@@ -18,6 +18,7 @@ byte amountCovered;
 byte flags;
 unsigned long timestamp;
 boolean allowButton;
+byte emptyArray[13][13] = {0};      //empty array
 
 byte grid[13][13] = {
   0};
@@ -42,9 +43,8 @@ void setup(){
   cposX=0;
   cposY=0;
   digitalWrite(A2,HIGH);
-  //TV.set_hbi_hook(pserial.begin(57600));
-  startBombs = 1;
-  
+  TV.set_hbi_hook(pserial.begin(57600));
+  startBombs = 20;
 }
 
 void loop(){
@@ -54,17 +54,20 @@ void loop(){
       temp++; 
     }
   }
+  countBombs();
+  calculateEmptyArray();
   TV.begin(PAL,128,96);
   screen();
   initialGrid();
-  countBombs();
-  CalculateEmptyArray();
+  
+  pserial.println("This is wierd");
   boolean temp1,temp2,temp2old;
-  while (1){  
-    drawDetection();
+    //drawDetection();
+  while (1){
+    //displayBombsLeft();
     //drawGen();
-    /*checkWin();
-    displayBombsLeft();
+    checkWin();
+    
     temp2old=temp2;
     getCursorMovement();
     if(allowButton){                  //if this is true then the joystick is not on one of the sides, should stop false short presses
@@ -90,7 +93,7 @@ void loop(){
           shortPress();
         }
       }
-    }*/
+    }
   }
 }
 

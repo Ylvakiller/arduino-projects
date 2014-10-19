@@ -202,7 +202,7 @@ void drawSideBombs(){
 
   TV.set_pixel(117,10,WHITE);
   TV.set_pixel(117,12,WHITE);        //:
-  TV.draw_rect(99,16,17,9,1,0);      //Square for the actual numbers for the bombcount
+  //TV.draw_rect(99,16,17,9,1,0);      //Square for the actual numbers for the bombcount
 
 }
 
