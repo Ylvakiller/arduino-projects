@@ -3,6 +3,7 @@
 #include <drawing.ino>
 #include <bombgen.ino>
 #include <TVout.h>
+#include <emptyDetection.ino>
 TVout TV;
 
 //#include <pollserial.h>
@@ -60,8 +61,9 @@ void loop(){
   CalculateEmptyArray();
   boolean temp1,temp2,temp2old;
   while (1){  
+    drawDetection();
     //drawGen();
-    checkWin();
+    /*checkWin();
     displayBombsLeft();
     temp2old=temp2;
     getCursorMovement();
@@ -88,7 +90,7 @@ void loop(){
           shortPress();
         }
       }
-    }
+    }*/
   }
 }
 
