@@ -322,52 +322,52 @@ void placeFlag(){
   case 1:
     grid[cposX][cposY]=21;
     drawFlag(cposX,cposY);
-    flags++:
+    flags++;
     break;
   case 2:
     grid[cposX][cposY]=22;
     drawFlag(cposX,cposY);
-    flags++:
+    flags++;    
     break;
   case 3:
     grid[cposX][cposY]=23;
     drawFlag(cposX,cposY);
-    flags++:
+    flags++;    
     break;
   case 4:
     grid[cposX][cposY]=24;
     drawFlag(cposX,cposY);
-    flags++:
+    flags++;    
     break;
   case 5:
     grid[cposX][cposY]=25;
     drawFlag(cposX,cposY);
-    flags++:
+    flags++;    
     break;
   case 6:
     grid[cposX][cposY]=26;
     drawFlag(cposX,cposY);
-    flags++:
+    flags++;    
     break;
   case 7:
     grid[cposX][cposY]=27;
     drawFlag(cposX,cposY);
-    flags++:
+    flags++;    
     break;
   case 8:
     grid[cposX][cposY]=28;
     drawFlag(cposX,cposY);
-    flags++:
+    flags++;    
     break;
   case 9:
     grid[cposX][cposY]=29;          //bomb
     drawFlag(cposX,cposY);
-    flags++:
+    flags++;    
     break;
   case 10:
     grid[cposX][cposY]=20;
     drawFlag(cposX,cposY);
-    flags++:
+    flags++;    
     break;
   }
 }
@@ -434,13 +434,14 @@ void bombExplosion(){
 
 //Counts the total amount of bombs left and returns an int type for that
 int countBombsLeft(){
-  
+  return (amountCovered-flags);
 }
 
 //Displays the amount of bombs left
 void displayBombsLeft(){
-  
+
 }
+
 
 
 
