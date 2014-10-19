@@ -60,6 +60,7 @@ void loop(){
   boolean temp1,temp2,temp2old;
   while (1){  
     //drawGen();
+    checkWin();
     displayBombsLeft();
     temp2old=temp2;
     getCursorMovement();
@@ -471,6 +472,12 @@ void displayBombsLeft(){
   }
 }
 
+void checkWin(){
+  if(amountCovered-flags==0&&flags==startBombs){
+    //code to run when this line is completed
+  }
+
+}
 
 
 
