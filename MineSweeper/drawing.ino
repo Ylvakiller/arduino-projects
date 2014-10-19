@@ -338,9 +338,11 @@ void drawWinScreen(){
   TV.draw_line(110,42,110,46,WHITE);
   
   TV.draw_line(113,41,113,46,WHITE);        //N
-  TV.draw_line(114,42,114,44,WHITE);
-  TV.draw_line(114,43,114,45,WHITE);
+  TV.draw_line(114,42,116,44,WHITE);
+  TV.draw_line(114,43,116,45,WHITE);
   TV.draw_line(117,41,117,46,WHITE);
+  while(true){
+  }
 }
 
 void gameOver(){

@@ -44,7 +44,7 @@ void setup(){
   cposY=0;
   digitalWrite(A2,HIGH);
   //TV.set_hbi_hook(pserial.begin(57600));
-  startBombs = 20;
+  startBombs = 5  ;
 }
 
 void loop(){
@@ -62,7 +62,7 @@ void loop(){
   
   //pserial.println("This is wierd");
   boolean temp1,temp2,temp2old;
-  drawWinScreen();
+  
     //drawDetection();
   while (1){
     displayBombsLeft();
@@ -481,7 +481,7 @@ void displayBombsLeft(){
 
 void checkWin(){
   if(amountCovered-flags==0&&flags==startBombs){
-    //code to run when this line is completed
+    drawWinScreen();
   }
 
 }
