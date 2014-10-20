@@ -100,7 +100,7 @@ void drawDetection(){
   byte y5 = 0;
   while (x5<13){
     while(y5<13){
-      //pserial.print(emptyArray[x][y]);
+      //pserial.print(emptyArray[x5][y5]);
       y5++;
     }
     //pserial.println();

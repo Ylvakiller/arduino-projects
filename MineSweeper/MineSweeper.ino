@@ -55,7 +55,7 @@ void loop(){
     }
   }
   countBombs();
-  //calculateEmptyArray();
+  calculateEmptyArray();
   TV.begin(PAL,128,96);
   screen();
   initialGrid();
@@ -316,6 +316,7 @@ void removeCover(){
   case 10:
     grid[cposX][cposY]=19;
     drawEmpty(cposX,cposY);
+    openEmpty(emptyArray[cposX][cposY]);
     amountCovered--;
     break;
   }
@@ -482,8 +483,20 @@ void checkWin(){
 
 }
 
-void openEmpty(){
-  
+void openEmpty(byte number){
+  byte x;
+  byte y;
+  while(x<13){
+    while(y<13){
+    if(emptyArray[x][y]==number){
+      amountCovered--;
+      grid[x][y]=19;
+      drawEmpty(x,y);
+    }
+    y++;
+    }
+    x++;
+  }
 }
 
 
