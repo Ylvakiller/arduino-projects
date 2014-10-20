@@ -6,8 +6,6 @@
 #include <emptyDetection.ino>
 TVout TV;
 
-//#include <pollserial.h>
-//pollserial pserial;
 byte startBombs;
 byte cursorX;
 byte cursorY;
@@ -44,8 +42,7 @@ void setup(){
   cposX=0;
   cposY=0;
   digitalWrite(A2,HIGH);
-  //TV.set_hbi_hook(pserial.begin(57600));
-  startBombs = 25  ;
+  startBombs = 21  ;
 }
 
 void loop(){
@@ -63,10 +60,8 @@ void loop(){
   boolean temp1,temp2,temp2old;
 
     drawCursor(0,0);
-  //drawDetection();
   while (1){
     displayBombsLeft();
-    //drawGen();
     checkWin();
     temp2old=temp2;
     getCursorMovement();
@@ -87,11 +82,9 @@ void loop(){
 
       if(temp2old&&!temp2){        //means button is just released          
         if(temp1){
-          //longPress();
           shortPress();
         }
         else{
-          //shortPress();
           longPress();
         }
       }
