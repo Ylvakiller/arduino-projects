@@ -45,7 +45,7 @@ void setup(){
   cposY=0;
   digitalWrite(A2,HIGH);
   //TV.set_hbi_hook(pserial.begin(57600));
-  startBombs = 5  ;
+  startBombs = 25  ;
 }
 
 void loop(){
@@ -62,12 +62,12 @@ void loop(){
   initialGrid();
   boolean temp1,temp2,temp2old;
 
+    drawCursor(0,0);
   //drawDetection();
   while (1){
     displayBombsLeft();
     //drawGen();
     checkWin();
-
     temp2old=temp2;
     getCursorMovement();
     if(allowButton){                  //if this is true then the joystick is not on one of the sides, should stop false short presses
@@ -87,10 +87,12 @@ void loop(){
 
       if(temp2old&&!temp2){        //means button is just released          
         if(temp1){
-          longPress();
+          //longPress();
+          shortPress();
         }
         else{
-          shortPress();
+          //shortPress();
+          longPress();
         }
       }
     }
