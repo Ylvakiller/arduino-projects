@@ -18,7 +18,8 @@ byte amountCovered;
 byte flags;
 unsigned long timestamp;
 boolean allowButton;
-byte emptyArray[13][13] = {0};      //empty array
+byte emptyArray[13][13] = {
+  0};      //empty array
 
 byte grid[13][13] = {
   0};
@@ -60,13 +61,13 @@ void loop(){
   screen();
   initialGrid();
   boolean temp1,temp2,temp2old;
-  
-    //drawDetection();
+
+  //drawDetection();
   while (1){
     displayBombsLeft();
     //drawGen();
     checkWin();
-    
+
     temp2old=temp2;
     getCursorMovement();
     if(allowButton){                  //if this is true then the joystick is not on one of the sides, should stop false short presses
@@ -442,7 +443,7 @@ int countBombsLeft(){
 //Displays the amount of bombs left
 void displayBombsLeft(){
   if (oldBombsLeft!=countBombsLeft()){
-  
+
     if (countBombsLeft()<0){
       if (abs(countBombsLeft())<10){      //negative one digit number
         clearSpace(0);
@@ -488,12 +489,71 @@ void openEmpty(byte number){
   byte y = 0;
   while(x<13){
     while(y<13){
-    if(emptyArray[x][y]==number){
-      amountCovered--;
-      grid[x][y]=19;
-      drawEmpty(x,y);
-    }
-    y++;
+      if(emptyArray[x][y]==number){
+        amountCovered--;
+        grid[x][y]=19;
+        drawEmpty(x,y);
+
+        if(x==0&&y==0){
+          openPos(x+1,y);
+          openPos(x+1,y+1);
+          openPos(x,y+1);
+        }
+        else if (x==12&&y==12){
+          openPos(x-1,y);
+          openPos(x-1,y-1);
+          openPos(x,y-1);
+        }
+        else if (x==0&&y==12){
+          openPos(x+1,y);
+          openPos(x,y-1);
+          openPos(x+1,y-1);
+        }
+        else if (x==12&&y==0){
+          openPos(x-1,y);
+          openPos(x,y+1);
+          openPos(x-1,y+1);
+        }
+        else if (x==0){
+          openPos(x,y-1);
+          openPos(x,y+1);
+          openPos(x+1,y-1);
+          openPos(x+1,y);
+          openPos(x+1,y+1);
+        }
+        else if (x==12){
+          openPos(x,y-1);
+          openPos(x,y+1);
+          openPos(x-1,y-1);
+          openPos(x-1,y);
+          openPos(x-1,y+1);
+        }
+        else if (y==0){
+          openPos(x-1,y);
+          openPos(x+1,y);
+          openPos(x-1,y+1);
+          openPos(x,y+1);
+          openPos(x+1,y+1);
+        }
+        else if (y==12){
+          openPos(x-1,y);
+          openPos(x+1,y);
+          openPos(x-1,y-1);
+          openPos(x,y-1);
+          openPos(x+1,y-1);
+        }
+        else{
+          openPos(x-1,y-1);
+          openPos(x-1,y);
+          openPos(x-1,y+1);
+          openPos(x+1,y-1);
+          openPos(x+1,y);
+          openPos(x+1,y+1);
+          openPos(x,y-1);
+          openPos(x,y+1);
+        }
+      }
+      y++;
     }
     y=0;
     x++;
@@ -534,20 +594,21 @@ void openPos(byte x, byte y){
     amountCovered--;
     break;
   case 7:
-    grid[cposX][cposY]=17;
-    draw7(cposX,cposY);
+    grid[x][y]=17;
+    draw7(x,y);
     amountCovered--;
     break;
   case 8:
-    grid[cposX][cposY]=18;
-    draw8(cposX,cposY);
+    grid[x][y]=18;
+    draw8(x,y);
     amountCovered--;
     break;
   case 9:
-    grid[cposX][cposY]=30;          //bomb
-    drawCross(cposX,cposY);
+    grid[x][y]=30;          //bomb
+    drawCross(x,y);
     drawGameOver();
     break;
+  }
 }
 
 
