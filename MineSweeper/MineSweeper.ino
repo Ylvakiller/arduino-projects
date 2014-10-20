@@ -317,7 +317,7 @@ void removeCover(){
     grid[cposX][cposY]=19;
     drawEmpty(cposX,cposY);
     openEmpty(emptyArray[cposX][cposY]);
-    amountCovered--;
+    //amountCovered--;
     break;
   }
 }
@@ -484,8 +484,8 @@ void checkWin(){
 }
 
 void openEmpty(byte number){
-  byte x;
-  byte y;
+  byte x = 0;
+  byte y = 0;
   while(x<13){
     while(y<13){
     if(emptyArray[x][y]==number){
@@ -495,11 +495,60 @@ void openEmpty(byte number){
     }
     y++;
     }
+    y=0;
     x++;
   }
 }
 
 
+void openPos(byte x, byte y){
+  switch (grid[x][y]){
+  case 1:
+    grid[x][y]=11;
+    draw1(x,y);
+    amountCovered--;
+    break;
+  case 2:
+    grid[x][y]=12;
+    draw2(x,y);
+    amountCovered--;
+    break;
+  case 3:
+    grid[x][y]=13;
+    draw3(x,y);
+    amountCovered--;
+    break;
+  case 4:
+    grid[x][y]=14;
+    draw4(x,y);
+    amountCovered--;
+    break;
+  case 5:
+    grid[x][y]=15;
+    draw5(x,y);
+    amountCovered--;
+    break;
+  case 6:
+    grid[x][y]=16;
+    draw6(x,y);
+    amountCovered--;
+    break;
+  case 7:
+    grid[cposX][cposY]=17;
+    draw7(cposX,cposY);
+    amountCovered--;
+    break;
+  case 8:
+    grid[cposX][cposY]=18;
+    draw8(cposX,cposY);
+    amountCovered--;
+    break;
+  case 9:
+    grid[cposX][cposY]=30;          //bomb
+    drawCross(cposX,cposY);
+    drawGameOver();
+    break;
+}
 
 
 
